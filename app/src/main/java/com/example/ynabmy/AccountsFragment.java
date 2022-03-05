@@ -34,7 +34,7 @@ public class AccountsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.fragment_accounts);
+
         allAccountBtn = (Button) getView().findViewById(R.id.allAccount); //if getView doesnt work try getActivity
         allAccountBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -42,7 +42,7 @@ public class AccountsFragment extends Fragment {
             public void onClick(View view) {
                 Log.d("xxx", "yyy");
                 Toast.makeText(getActivity(),"xxxxx", Toast.LENGTH_LONG).show();
-                openNewActivity();
+                //openNewActivity();
             }
         });
     }
@@ -53,9 +53,9 @@ public class AccountsFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_accounts, container, false);
     }
-    
-    public void openNewActivity(){
-        Intent intent = new Intent(this, getActivity().class);
-        startActivity(intent);
-    }
+
+//    public void openNewActivity(){
+//        Intent intent = new Intent(getActivity(), MainActivityList.class);
+//        startActivity(intent);
+//    }
 }
