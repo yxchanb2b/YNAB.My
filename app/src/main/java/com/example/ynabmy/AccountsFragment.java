@@ -18,7 +18,7 @@ import android.widget.Toast;
  * create an instance of this fragment.
  */
 public class AccountsFragment extends Fragment {
-    private Button allAccount;
+    private Button allAccountBtn;
 
     public AccountsFragment() {
         super(R.layout.fragment_accounts);
@@ -35,7 +35,16 @@ public class AccountsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.fragment_accounts);
-        allAccount = (Button) getView().findViewById(R.id.allAccount); //if getView doesnt work try getActivity
+        allAccountBtn = (Button) getView().findViewById(R.id.allAccount); //if getView doesnt work try getActivity
+        allAccountBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Log.d("xxx", "yyy");
+                Toast.makeText(getActivity(),"xxxxx", Toast.LENGTH_LONG).show();
+                openNewActivity();
+            }
+        });
     }
 
     @Override
@@ -44,13 +53,7 @@ public class AccountsFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_accounts, container, false);
     }
-
-    public void onClickBtn(View v)
-    {
-        Log.d("xxx", "yyy");
-        Toast.makeText(getActivity(),"xxxxx", Toast.LENGTH_LONG).show();
-        openNewActivity();
-    }
+    
     public void openNewActivity(){
         Intent intent = new Intent(this, getActivity().class);
         startActivity(intent);
